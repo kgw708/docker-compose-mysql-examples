@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS `test_table` (
   `created_at` datetime(3) DEFAULT now(3),
   `updated_at` datetime(3) DEFAULT now(3) ON UPDATE now(3),
   PRIMARY KEY(`id`),
-  UNIQUE unique_code (code),
-  INDEX updated_at (updated_at)
+  UNIQUE unique_code(code),
+  INDEX updated_at(updated_at)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `test_table`

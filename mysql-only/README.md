@@ -1,5 +1,10 @@
 # mysql-only
 
+## description
+
+docker-compose で mysql の環境を構築します。  
+おまけで phpmyadmin も導入します。  
+
 ## ディレクトリ構成
 ```
 ├── mysql
@@ -13,32 +18,35 @@
 └── init_mysql.sh
 ```
 
-## Dockerコンテナ起動
+## usage
+
+### Dockerコンテナ起動
 ```
 $ docker-compose up -d
 ```
 
-## Dockerコンテナ起動確認
+### Dockerコンテナ一覧表示（起動確認）
 ```
 $ docker-compose ps
 ```
 
-## DB初期化
+### DB初期化
 ```
 $ ./init_mysql.sh
 ```
 
-## Dockerコンテナへログイン
+### Dockerコンテナへログイン
 ```
+# db は yml で指定したサービス名
 $ docker-compose exec db /bin/bash
 ```
 
-## mysql接続
+### mysql接続
 ```
 $ mysql -u root -p
 ```
 
-## DB確認
+### DB確認
 ```
 # タイムゾーンの確認 -> Asia/Tokyoになっていること
 mysql> show variables like '%time_zone%';
@@ -61,15 +69,22 @@ mysql> select * from test_table;
 mysql> exit
 ```
 
-## Dockerコンテナからログアウト
+### Dockerコンテナからログアウト
 ```
 $ exit
 ```
 
-## phpmyadminへアクセス
-`http://localhost:8000`
+### phpmyadminへのアクセス
+```
+ブラウザで http://localhost:8000 へアクセスする
+```
 
-## Dockerコンテナの停止と削除
+### Dockerコンテナの停止
+```
+$ docker-compose stop
+```
+
+### Dockerコンテナの削除
 ```
 $ docker-compose down
 ```
