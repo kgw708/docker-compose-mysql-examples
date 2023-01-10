@@ -30,6 +30,3 @@ services:
   flyway-info:
     <<: *flyway-template
     command: info
-  flyway-repair:
-    <<: *flyway-template
-    command: repair
